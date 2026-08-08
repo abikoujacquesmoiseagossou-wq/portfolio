@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portfolio-jack-4640.vercel.app/sitemap.xml
