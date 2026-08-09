@@ -13,12 +13,12 @@
 <meta property="og:title" content="Jacques. — Développeur Web · Abomey-Calavi">
 <meta property="og:description" content="Sites web, design créatif et marketing digital. Formation en Sciences Politiques et Relations Internationales.">
 <meta property="og:url" content="https://portfolio-jack-4640.vercel.app/">
-<meta property="og:image" content="https://portfolio-jack-4640.vercel.app/assets/developer-laptop.jpg">
+<meta property="og:image" content="https://portfolio-jack-4640.vercel.app/assets/profile.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jacques. — Développeur Web · Abomey-Calavi">
 <meta name="twitter:description" content="Sites web, design créatif et marketing digital depuis Abomey-Calavi, Bénin.">
-<meta name="twitter:image" content="https://portfolio-jack-4640.vercel.app/assets/developer-laptop.jpg">
+<meta name="twitter:image" content="https://portfolio-jack-4640.vercel.app/assets/profile.jpg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {
@@ -47,7 +47,7 @@
     "addressLocality": "Abomey-Calavi",
     "addressCountry": "BJ"
   },
-  "image": "https://portfolio-jack-4640.vercel.app/assets/developer-laptop.jpg",
+  "image": "https://portfolio-jack-4640.vercel.app/assets/profile.jpg",
   "sameAs": [
     "https://github.com/abikoujacquesmoiseagossou-wq",
     "https://www.linkedin.com/in/jacquesmoiseabikou-abikou/"
@@ -98,34 +98,47 @@
 
 <main id="main">
 
-<!-- HERO -->
+<!-- HERO : laptop en arrière-plan, photo profil au premier plan -->
 <section class="hero" id="accueil">
-  <div class="hero-media" data-parallax>
+  <div class="hero-media" data-parallax aria-hidden="true">
     <img
       src="assets/developer-laptop.jpg"
-      alt="Développeur concentré devant un ordinateur portable — ambiance de travail créatif"
-      class="hero-img"
+      alt=""
+      class="hero-bg-img"
       width="1600"
       height="1067"
       fetchpriority="high">
-    <div class="hero-media-shade" aria-hidden="true"></div>
+    <div class="hero-media-shade"></div>
   </div>
-  <div class="wrap hero-content">
-    <p class="hero-brand hero-anim" data-anim>Jacques<span>.</span></p>
-    <h1 class="hero-title hero-anim" data-anim>Je construis des sites utiles,<br>depuis Abomey-Calavi.</h1>
-    <p class="hero-sub hero-anim" data-anim>
-      Développeur web, designer d’affiches &amp; logos, et licencié en Sciences Politiques et Relations Internationales.
-    </p>
-    <div class="hero-cta hero-anim" data-anim>
-      <a href="#contact" class="btn btn-primary mag-btn">Écrivons-nous</a>
-      <a href="#projets" class="btn btn-outline mag-btn">Voir mes projets</a>
-      <a href="cv.html" class="btn btn-gold mag-btn">Mon CV</a>
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <p class="hero-brand hero-anim" data-anim>Jacques<span>.</span></p>
+      <h1 class="hero-title hero-anim" data-anim>Je construis des sites utiles,<br>depuis Abomey-Calavi.</h1>
+      <p class="hero-sub hero-anim" data-anim>
+        Développeur web, designer d’affiches &amp; logos, et licencié en Sciences Politiques et Relations Internationales.
+      </p>
+      <div class="hero-cta hero-anim" data-anim>
+        <a href="#contact" class="btn btn-primary mag-btn">Écrivons-nous</a>
+        <a href="#projets" class="btn btn-outline mag-btn">Voir mes projets</a>
+        <a href="cv.html" class="btn btn-gold mag-btn">Mon CV</a>
+      </div>
+      <div class="hero-social hero-anim" data-anim>
+        <a href="https://github.com/abikoujacquesmoiseagossou-wq" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/jacquesmoiseabikou-abikou/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="mailto:jacquesabikou58@gmail.com" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 5.5C2 4.67 2.67 4 3.5 4h17c.83 0 1.5.67 1.5 1.5v13c0 .83-.67 1.5-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.3 6.1a1 1 0 0 0 1 0L19.8 6H4.2zM4 8.1V18h16V8.1l-7.24 6.03a2.5 2.5 0 0 1-2.52 0L4 8.1z"/></svg>
+        </a>
+      </div>
     </div>
-    <p class="hero-links hero-anim" data-anim>
-      <a href="mailto:jacquesabikou58@gmail.com">Email</a>
-      <a href="https://github.com/abikoujacquesmoiseagossou-wq" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/jacquesmoiseabikou-abikou/" target="_blank" rel="noopener">LinkedIn</a>
-    </p>
+    <div class="hero-photo-wrap hero-anim" data-anim>
+      <div class="photo-glass">
+        <img src="assets/profile.jpg" alt="Portrait de ABIKOU Jacques Moïse Agossou" class="hero-photo" width="480" height="600">
+      </div>
+    </div>
   </div>
   <a href="#apropos" class="scroll-cue" aria-label="Descendre vers À propos"><span></span></a>
 </section>
@@ -315,31 +328,49 @@
     <div class="services-grid">
       <article class="service-card reveal">
         <span class="service-num">01</span>
+        <span class="service-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M8 7 4 12l4 5M16 7l4 5-4 5M13 5l-2 14"/></svg>
+        </span>
         <h3>Création de sites</h3>
         <p>Sites vitrines modernes, responsives, pensés pour être compris en quelques secondes — pas juste jolis.</p>
       </article>
       <article class="service-card reveal reveal-delay-1">
         <span class="service-num">02</span>
+        <span class="service-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 20V9"/></svg>
+        </span>
         <h3>WordPress</h3>
         <p>Installation, personnalisation, contenu, et un site que vous pourrez mettre à jour sans paniquer.</p>
       </article>
       <article class="service-card reveal reveal-delay-2">
         <span class="service-num">03</span>
+        <span class="service-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 12l9 5 9-5M3 16l9 5 9-5"/></svg>
+        </span>
         <h3>Affiches &amp; logos</h3>
         <p>Affiches publicitaires, logos et supports visuels pour annoncer, vendre ou lancer une activité.</p>
       </article>
       <article class="service-card reveal">
         <span class="service-num">04</span>
+        <span class="service-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 5-7"/></svg>
+        </span>
         <h3>Marketing digital</h3>
         <p>Accompagnement sur le positionnement en ligne, le contenu et la visibilité — avec les pieds sur terre.</p>
       </article>
       <article class="service-card reveal reveal-delay-1">
         <span class="service-num">05</span>
+        <span class="service-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M14.7 6.3a4 4 0 0 1 2.8 2.8l1.8 7.2a1 1 0 0 1-1.2 1.2l-7.2-1.8a4 4 0 0 1-2.8-2.8L6.3 5.7a1 1 0 0 1 1.2-1.2l7.2 1.8z"/><circle cx="9" cy="15" r="5"/></svg>
+        </span>
         <h3>Maintenance</h3>
         <p>Mises à jour, petits correctifs, et suivi pour que le site ne « meure » pas après la livraison.</p>
       </article>
       <article class="service-card reveal reveal-delay-2">
         <span class="service-num">06</span>
+        <span class="service-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+        </span>
         <h3>Conseil &amp; analyse</h3>
         <p>Quand un projet touche aussi la gouvernance ou la communication institutionnelle, ma formation en sciences politiques aide.</p>
       </article>
@@ -537,10 +568,22 @@
     <div class="contact-grid">
       <div class="reveal">
         <div class="contact-links">
-          <a href="mailto:jacquesabikou58@gmail.com">jacquesabikou58@gmail.com</a>
-          <a href="https://github.com/abikoujacquesmoiseagossou-wq" target="_blank" rel="noopener">GitHub — abikoujacquesmoiseagossou-wq</a>
-          <a href="https://www.linkedin.com/in/jacquesmoiseabikou-abikou/" target="_blank" rel="noopener">LinkedIn — jacquesmoiseabikou</a>
-          <p class="contact-place">Abomey-Calavi, Bénin</p>
+          <a href="mailto:jacquesabikou58@gmail.com">
+            <span class="ci-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M2 5.5C2 4.67 2.67 4 3.5 4h17c.83 0 1.5.67 1.5 1.5v13c0 .83-.67 1.5-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.3 6.1a1 1 0 0 0 1 0L19.8 6H4.2zM4 8.1V18h16V8.1l-7.24 6.03a2.5 2.5 0 0 1-2.52 0L4 8.1z"/></svg></span>
+            jacquesabikou58@gmail.com
+          </a>
+          <a href="https://github.com/abikoujacquesmoiseagossou-wq" target="_blank" rel="noopener">
+            <span class="ci-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg></span>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/jacquesmoiseabikou-abikou/" target="_blank" rel="noopener">
+            <span class="ci-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></span>
+            LinkedIn
+          </a>
+          <p class="contact-place">
+            <span class="ci-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            Abomey-Calavi, Bénin
+          </p>
         </div>
         <div class="map-frame">
           <iframe src="https://www.google.com/maps?q=Abomey-Calavi,Benin&output=embed" loading="lazy" title="Carte — Abomey-Calavi, Bénin"></iframe>
@@ -583,13 +626,24 @@
 <footer>
   <div class="wrap footer-inner">
     <div>
-      <p class="footer-brand">Jacques<span>.</span></p>
-      <p class="footer-tag">Développeur web · Design · Marketing · Sciences politiques</p>
-      <p class="footer-links">
-        <a href="mailto:jacquesabikou58@gmail.com">Email</a>
-        <a href="https://github.com/abikoujacquesmoiseagossou-wq" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/jacquesmoiseabikou-abikou/" target="_blank" rel="noopener">LinkedIn</a>
-      </p>
+      <div class="footer-brand-row">
+        <img src="assets/profile.jpg" alt="Portrait de ABIKOU Jacques Moïse Agossou" class="footer-avatar" width="56" height="56">
+        <div>
+          <p class="footer-brand">Jacques<span>.</span></p>
+          <p class="footer-tag">Développeur web · Design · Marketing · Sciences politiques</p>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/abikoujacquesmoiseagossou-wq" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/jacquesmoiseabikou-abikou/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="mailto:jacquesabikou58@gmail.com" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 5.5C2 4.67 2.67 4 3.5 4h17c.83 0 1.5.67 1.5 1.5v13c0 .83-.67 1.5-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.3 6.1a1 1 0 0 0 1 0L19.8 6H4.2zM4 8.1V18h16V8.1l-7.24 6.03a2.5 2.5 0 0 1-2.52 0L4 8.1z"/></svg>
+        </a>
+      </div>
     </div>
     <div class="footer-nav">
       <a href="#apropos">À propos</a>

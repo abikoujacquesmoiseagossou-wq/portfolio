@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- Soft parallax on hero image ---------- */
-  const parallaxEl = document.querySelector('[data-parallax] .hero-img');
+  const parallaxEl = document.querySelector('[data-parallax] .hero-bg-img');
   if (!reduceMotion && parallaxEl) {
     const onMove = throttleRAF((e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 12;
