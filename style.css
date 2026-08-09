@@ -338,55 +338,20 @@ header.scrolled {
 
 .hero-photo-wrap {
   justify-self: end;
-  width: min(100%, 360px);
+  width: min(100%, 320px);
   transform: translateY(18px);
   opacity: 0;
   transition: transform 1s var(--ease), opacity 1s var(--ease);
 }
 .hero.is-ready .hero-photo-wrap { transform: none; opacity: 1; transition-delay: 0.35s; }
-.photo-mask {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1.12;
-  filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.38));
-}
-.photo-mask::before {
-  content: "";
-  position: absolute;
-  inset: 6% 8% 4% 8%;
-  background: radial-gradient(circle at 40% 35%, rgba(212, 165, 55, 0.28), transparent 62%);
-  filter: blur(18px);
-  z-index: 0;
-  pointer-events: none;
-}
 .hero-photo {
-  position: relative;
-  z-index: 1;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
   object-position: center 18%;
   display: block;
-  /* Soft organic / blob crop — less “photo in a box” */
-  clip-path: polygon(
-    48% 1%,
-    72% 4%,
-    88% 14%,
-    97% 32%,
-    99% 52%,
-    94% 72%,
-    80% 88%,
-    58% 97%,
-    36% 99%,
-    16% 92%,
-    5% 76%,
-    1% 54%,
-    3% 32%,
-    14% 14%,
-    30% 4%
-  );
-  -webkit-mask-image: radial-gradient(ellipse 92% 90% at 50% 46%, #000 68%, transparent 100%);
-  mask-image: radial-gradient(ellipse 92% 90% at 50% 46%, #000 68%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
 }
 
 .hero-anim {
