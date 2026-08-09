@@ -244,6 +244,18 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: 'Résultat', text: 'Un portfolio moderne, responsive et optimisé pour présenter efficacement mon profil professionnel.' }
       ]
     },
+    juridiques: {
+      title: 'SJJBenin — Plateforme Juridique',
+      tag: 'Plateforme Full-Stack',
+      thumbClass: 'thumb-a',
+      liveUrl: 'https://juridiques-project.vercel.app/',
+      intro: "SJJBenin est une plateforme digitale de services juridiques conçue pour le Bénin. Elle connecte citoyens et professionnels du droit (avocats, notaires, huissiers, magistrats) autour de la gestion de dossiers, de la prise de rendez-vous et d’outils d’assistance.",
+      blocks: [
+        { title: 'Fonctionnalités', list: ['Authentification sécurisée (JWT, MFA/TOTP, OAuth)', 'Création et suivi de cas juridiques avec documents', 'Annuaire des professionnels du droit par spécialité', 'Prise de rendez-vous', 'Chatbot d’assistance juridique', 'Suivi GPS des coursiers (Leaflet)', 'Tableaux de bord et notifications'] },
+        { title: 'Technologies', tags: ['React', 'TypeScript', 'Vite', 'Express', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'Leaflet', 'Vercel'] },
+        { title: 'Résultat', text: 'Une application full-stack déployée sur Vercel, avec API serverless et base PostgreSQL, visant à moderniser l’accès aux services juridiques au Bénin.' }
+      ]
+    },
     soneb: {
       title: 'Allô SONEB',
       tag: 'Application Web',
