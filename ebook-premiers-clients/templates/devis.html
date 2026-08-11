@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Template Devis — Premiers clients en 30 jours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14181f;
+      --muted: #5a6372;
+      --teal: #0b6b6b;
+      --line: #e4e8ef;
+      --bg: #f7f8fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      padding: 2rem 1rem 3rem;
+    }
+    .sheet {
+      width: min(800px, 100%);
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 16px 40px rgba(20,24,31,.07);
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-bottom: 2px solid var(--teal);
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .muted { color: var(--muted); font-size: .92rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 1.4rem; }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+    label { display: block; font-size: .78rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: .04em; margin-bottom: .35rem; }
+    .field {
+      border: 1px dashed #c9d2de;
+      border-radius: 10px;
+      min-height: 42px;
+      padding: .65rem .75rem;
+      background: #fbfcfd;
+    }
+    h2 { font-size: 1.05rem; margin: 1.4rem 0 .6rem; }
+    table { width: 100%; border-collapse: collapse; margin: .5rem 0 1rem; }
+    th, td { border: 1px solid var(--line); padding: .7rem; text-align: left; font-size: .93rem; }
+    th { background: #d8f3f0; color: #084848; }
+    .options { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { .options { grid-template-columns: 1fr; } }
+    .opt {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem;
+      background: linear-gradient(180deg, #f7fffe, #fff);
+    }
+    .opt.featured { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(11,107,107,.12); }
+    .opt h3 { margin: 0 0 .35rem; font-size: 1rem; }
+    .price { font-family: Fraunces, Georgia, serif; font-size: 1.6rem; color: var(--teal); margin: .4rem 0 .7rem; }
+    .actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    button, .btn {
+      border: 0;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      padding: .7rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .actions { display: none; }
+      .sheet { box-shadow: none; border: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="top">
+      <div>
+        <h1>Proposition commerciale</h1>
+        <p class="muted">Template devis · Premiers clients en 30 jours</p>
+      </div>
+      <div class="muted" style="text-align:right">
+        <div><strong>[Ton nom / marque]</strong></div>
+        <div>[email] · [téléphone]</div>
+        <div>Devis n° [2026-001] · [date]</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <label>Client</label>
+        <div class="field">[Nom] — [Entreprise]</div>
+      </div>
+      <div>
+        <label>Validité</label>
+        <div class="field">15 jours</div>
+      </div>
+    </div>
+
+    <h2>1. Contexte</h2>
+    <div class="field" style="min-height:72px">
+      [Reformuler le problème du client en 3 lignes, avec SES mots]
+    </div>
+
+    <h2>2. Objectif</h2>
+    <div class="field">[Résultat mesurable sous 30–60 jours]</div>
+
+    <h2>3. Options</h2>
+    <div class="options">
+      <div class="opt">
+        <h3>Option Standard</h3>
+        <div class="price">[450] €</div>
+        <ul>
+          <li>[Livrable 1]</li>
+          <li>[Livrable 2]</li>
+          <li>[Livrable 3]</li>
+          <li>Délai : [X] jours</li>
+          <li>1 round de révisions</li>
+        </ul>
+      </div>
+      <div class="opt featured">
+        <h3>Option Premium ★</h3>
+        <div class="price">[900] €</div>
+        <ul>
+          <li>Tout le Standard</li>
+          <li>[Extra stratégie / suivi]</li>
+          <li>[Extra livrable]</li>
+          <li>Délai : [X] jours</li>
+          <li>2 rounds de révisions + call de suivi</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>4. Périmètre</h2>
+    <table>
+      <thead>
+        <tr><th>Inclus</th><th>Non inclus</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[…]</td>
+          <td>[…]</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Modalités</h2>
+    <div class="field">
+      Acompte 40 % à la commande · Solde 60 % à la livraison · Kickoff proposé : [date]
+    </div>
+
+    <h2>6. Acceptation</h2>
+    <div class="grid">
+      <div>
+        <label>Client — nom + signature</label>
+        <div class="field" style="min-height:64px"></div>
+      </div>
+      <div>
+        <label>Freelance — nom + signature</label>
+        <div class="field" style="min-height:64px"></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="window.print()">Exporter PDF</button>
+      <a class="btn" href="../index.html" style="background:#14181f">Retour à l’ebook</a>
+    </div>
+  </div>
+</body>
+</html>

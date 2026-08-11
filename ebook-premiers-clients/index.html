@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premiers clients en 30 jours — Guide freelance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14181f;
+      --muted: #5a6372;
+      --paper: #f6f7f9;
+      --card: #ffffff;
+      --line: #e3e7ee;
+      --teal: #0b6b6b;
+      --teal-deep: #084848;
+      --mint: #d8f3f0;
+      --sand: #f3ebe0;
+      --warn: #8a4b12;
+      --radius: 14px;
+      --shadow: 0 12px 40px rgba(20, 24, 31, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #d9f2ef 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #f3ebe0 0%, transparent 45%),
+        var(--paper);
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      line-height: 1.65;
+      font-size: 16.5px;
+    }
+
+    .wrap { width: min(920px, calc(100% - 2rem)); margin: 0 auto; }
+
+    /* —— Cover —— */
+    .cover {
+      min-height: 100vh;
+      display: grid;
+      align-items: end;
+      padding: 2.5rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 8% 0 auto auto;
+      width: min(420px, 55vw);
+      height: min(420px, 55vw);
+      border-radius: 40% 60% 55% 45%;
+      background: linear-gradient(145deg, var(--teal) 0%, #1aa39a 55%, #f0c27b 100%);
+      opacity: 0.18;
+      filter: blur(2px);
+      animation: float 9s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(18px) rotate(4deg); }
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .4rem .8rem;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--teal-deep);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .cover h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      line-height: 1.05;
+      margin: 1rem 0 .8rem;
+      max-width: 14ch;
+      letter-spacing: -0.02em;
+    }
+    .cover .lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 38ch;
+      margin: 0 0 1.8rem;
+    }
+    .cover-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem 1.25rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .cover-meta strong { color: var(--ink); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      padding: .85rem 1.2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 650;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(11, 107, 107, 0.28);
+    }
+    .btn-primary:hover { background: var(--teal-deep); }
+    .btn-ghost {
+      background: var(--card);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    /* —— Layout —— */
+    nav.toc {
+      margin: 1rem 0 3rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    nav.toc h2 {
+      font-family: Fraunces, Georgia, serif;
+      margin: 0 0 1rem;
+      font-size: 1.35rem;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .55rem 1.25rem;
+    }
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .95rem;
+      display: flex;
+      gap: .6rem;
+      padding: .35rem 0;
+      border-bottom: 1px dashed transparent;
+    }
+    .toc a:hover { color: var(--teal); border-bottom-color: #b7d9d6; }
+    .toc .n {
+      color: var(--teal);
+      font-weight: 700;
+      min-width: 1.6rem;
+    }
+
+    section.chapter {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: clamp(1.4rem, 3vw, 2.4rem);
+      margin: 0 0 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .chapter-kicker {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 0 0 .4rem;
+    }
+    h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.55rem, 3vw, 2.05rem);
+      line-height: 1.2;
+      margin: 0 0 .8rem;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.6rem 0 .55rem;
+    }
+    p { margin: 0 0 1rem; color: #2a3140; }
+    ul, ol { margin: 0 0 1rem; padding-left: 1.2rem; color: #2a3140; }
+    li { margin: .35rem 0; }
+
+    .day-chip {
+      display: inline-block;
+      background: var(--sand);
+      color: var(--warn);
+      font-weight: 700;
+      font-size: .78rem;
+      padding: .28rem .65rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+    }
+
+    .callout {
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      margin: 1.1rem 0;
+      border: 1px solid var(--line);
+    }
+    .callout.tip { background: var(--mint); border-color: #bfe6e1; }
+    .callout.warn { background: #fff6eb; border-color: #f0d7b8; }
+    .callout.action { background: #eef2ff; border-color: #d5dcf8; }
+    .callout strong { display: block; margin-bottom: .25rem; }
+
+    .formula {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.2rem;
+      background: linear-gradient(90deg, var(--mint), #fff);
+      border-left: 4px solid var(--teal);
+      padding: 1rem 1.15rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1.2rem 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem 1.05rem;
+    }
+    .card h4 {
+      margin: 0 0 .45rem;
+      font-size: 1rem;
+    }
+    .card p { margin: 0; font-size: .93rem; }
+
+    .template {
+      margin: 1.25rem 0;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0f1717;
+      color: #e8f3f2;
+      box-shadow: var(--shadow);
+    }
+    .template-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .85rem 1rem;
+      background: #163030;
+      border-bottom: 1px solid #234343;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+    .template-head span {
+      color: #8fd4cf;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .template pre {
+      margin: 0;
+      padding: 1.1rem 1.15rem 1.25rem;
+      white-space: pre-wrap;
+      font-family: "Plus Jakarta Sans", ui-monospace, monospace;
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+    .copy-hint { color: #9bb8b5; font-size: .78rem; padding: 0 1.15rem 1rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.2rem;
+      font-size: .93rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: .7rem .75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--mint); color: var(--teal-deep); }
+
+    .checklist label {
+      display: flex;
+      gap: .7rem;
+      align-items: flex-start;
+      padding: .55rem .65rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin: .45rem 0;
+      background: var(--paper);
+      cursor: pointer;
+    }
+    .checklist input { margin-top: .25rem; accent-color: var(--teal); }
+
+    .timeline {
+      border-left: 3px solid var(--teal);
+      margin: 1rem 0 0 0.4rem;
+      padding-left: 1rem;
+    }
+    .timeline .step { margin: 0 0 1rem; }
+    .timeline .step strong { color: var(--teal-deep); }
+
+    footer.book-end {
+      text-align: center;
+      padding: 2.5rem 0 3.5rem;
+      color: var(--muted);
+    }
+    footer.book-end h2 {
+      margin-bottom: .4rem;
+    }
+
+    .print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(246, 247, 249, 0.86);
+      border-bottom: 1px solid var(--line);
+    }
+    .print-bar .inner {
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .7rem 0;
+      font-size: .9rem;
+    }
+    .print-bar button {
+      border: 0;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 650;
+      padding: .55rem .9rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    @media print {
+      .print-bar, .cta-row, .btn { display: none !important; }
+      body { background: #fff; font-size: 12pt; }
+      .cover { min-height: auto; page-break-after: always; }
+      section.chapter {
+        box-shadow: none;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .template { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-bar">
+    <div class="inner">
+      <div><strong>Premiers clients en 30 jours</strong> · Édition personnalisée</div>
+      <button type="button" onclick="window.print()">Exporter en PDF</button>
+    </div>
+  </div>
+
+  <header class="cover wrap">
+    <div>
+      <div class="badge">Guide pratique · Freelance 2026</div>
+      <h1>Premiers clients en 30 jours</h1>
+      <p class="lead">
+        La méthode concrète pour décrocher tes 3 premiers clients —
+        scripts, messages, devis et plan jour par jour. Sans audience. Sans pub payante.
+      </p>
+      <div class="cover-meta">
+        <div><strong>Format</strong> · Guide + templates</div>
+        <div><strong>Durée</strong> · 30 jours</div>
+        <div><strong>Objectif</strong> · 3 clients payants</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#toc">Commencer le guide</a>
+        <a class="btn btn-ghost" href="#templates">Voir les templates</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="toc" id="toc">
+      <h2>Sommaire</h2>
+      <div class="toc-grid">
+        <a href="#intro"><span class="n">00</span> Comment utiliser ce guide</a>
+        <a href="#ch1"><span class="n">01</span> Ton offre claire</a>
+        <a href="#ch2"><span class="n">02</span> Ton prix (sans te sous-vendre)</a>
+        <a href="#ch3"><span class="n">03</span> Où trouver des clients</a>
+        <a href="#ch4"><span class="n">04</span> Messages qui convertissent</a>
+        <a href="#templates"><span class="n">★</span> Pack templates prospection</a>
+        <a href="#ch5"><span class="n">05</span> Appel découverte + closing</a>
+        <a href="#ch6"><span class="n">06</span> Livrer, facturer, enchaîner</a>
+        <a href="#plan30"><span class="n">07</span> Plan d’action 30 jours</a>
+        <a href="#bonus"><span class="n">08</span> Bonus & checklists</a>
+      </div>
+    </nav>
+
+    <!-- INTRO -->
+    <section class="chapter" id="intro">
+      <p class="chapter-kicker">Introduction</p>
+      <h2>Ce guide n’est pas de la motivation. C’est un système.</h2>
+      <p>
+        La plupart des freelances débutants attendent d’être “prêts”.
+        Ils peaufinent leur portfolio pendant des semaines… puis envoient 3 messages timidement… puis abandonnent.
+      </p>
+      <p>
+        Ici, on inverse la logique : <strong>offre claire → actions quotidiennes → conversations → devis → clients</strong>.
+        Tu n’as pas besoin de 10 000 abonnés. Tu as besoin de 20 conversations honnêtes.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Ce que tu obtiens</h4>
+          <p>Une offre vendable, une grille de prix, 10 templates de messages, un script d’appel, un modèle de devis, une checklist 30 jours.</p>
+        </div>
+        <div class="card">
+          <h4>Ce que tu dois faire</h4>
+          <p>30 à 60 minutes par jour. Remplir les exercices. Envoyer les messages. Noter ce qui marche. Ajuster.</p>
+        </div>
+      </div>
+      <div class="callout tip">
+        <strong>Règle d’or</strong>
+        Un message envoyé bat une stratégie parfaite non exécutée. Ce guide est conçu pour être utilisé, pas seulement lu.
+      </div>
+    </section>
+
+    <!-- CH1 -->
+    <section class="chapter" id="ch1">
+      <div class="day-chip">Jours 1 à 3</div>
+      <p class="chapter-kicker">Chapitre 1</p>
+      <h2>Ton offre claire (le vrai point de départ)</h2>
+      <p>
+        Les clients n’achètent pas “du graphisme” ou “du code”.
+        Ils achètent un <strong>résultat</strong> : plus de leads, un site qui convertit, une identité qui inspire confiance.
+      </p>
+
+      <h3>La formule d’offre</h3>
+      <div class="formula">
+        J’aide <em>[qui]</em> à <em>[obtenir quel résultat]</em>
+        grâce à <em>[ton service]</em>, en <em>[délai / cadre]</em>.
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>❌ Trop vague</h4>
+          <p>« Je fais du community management pour les entreprises. »</p>
+        </div>
+        <div class="card">
+          <h4>✅ Clair et vendable</h4>
+          <p>« J’aide les coachs sportifs à remplir leurs créneaux via Instagram (contenu + DM) en 30 jours. »</p>
+        </div>
+      </div>
+
+      <h3>Exemples par métier</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Métier</th>
+            <th>Offre claire</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rédaction</td>
+            <td>J’aide les SaaS B2B à publier 4 articles SEO / mois qui génèrent des démos.</td>
+          </tr>
+          <tr>
+            <td>Design</td>
+            <td>Je crée des identités visuelles pour freelances qui veulent paraître premium en 10 jours.</td>
+          </tr>
+          <tr>
+            <td>Dev web</td>
+            <td>Je livre des landing pages Next.js ultra-rapides pour lancer une offre en 14 jours.</td>
+          </tr>
+          <tr>
+            <td>Social media</td>
+            <td>Je transforme le LinkedIn des consultants en machine à rendez-vous (8 posts + script DM).</td>
+          </tr>
+          <tr>
+            <td>Vidéo</td>
+            <td>Je montee des Reels “avant/après” pour artisans qui veulent plus de devis locaux.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout action">
+        <strong>Exercice (15 min)</strong>
+        Écris 3 versions de ta formule. Choisis celle qu’un inconnu comprendrait en 5 secondes. Ça devient ta bio LinkedIn + ta première phrase de message.
+      </div>
+    </section>
+
+    <!-- CH2 -->
+    <section class="chapter" id="ch2">
+      <div class="day-chip">Jours 4 à 5</div>
+      <p class="chapter-kicker">Chapitre 2</p>
+      <h2>Ton prix : arrête de brader pour “avoir de l’expérience”</h2>
+      <p>
+        Un prix trop bas attire les mauvais clients et te vide d’énergie.
+        Tu n’as pas besoin d’être le moins cher. Tu as besoin d’être <strong>clair et rassurant</strong>.
+      </p>
+
+      <h3>Grille 3 niveaux (à adapter)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Offre</th>
+            <th>Contenu</th>
+            <th>Prix départ*</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Découverte</strong></td>
+            <td>1 livrable simple, délai court, scope limité</td>
+            <td>180 – 350 €</td>
+          </tr>
+          <tr>
+            <td><strong>Standard</strong></td>
+            <td>Pack complet (le plus vendu)</td>
+            <td>450 – 900 €</td>
+          </tr>
+          <tr>
+            <td><strong>Premium</strong></td>
+            <td>Standard + suivi / revisions / stratégie</td>
+            <td>1 000 – 2 000 €</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:.9rem;color:var(--muted)">*Indicatif pour un freelance débutant en France. Ajuste selon ton métier et ton marché local.</p>
+
+      <div class="callout tip">
+        <strong>Astuce closing</strong>
+        Propose toujours 2 options (Standard + Premium). Les gens comparent. Le Standard paraît raisonnable.
+      </div>
+
+      <div class="callout warn">
+        <strong>À ne pas faire</strong>
+        « Dis-moi ton budget ». Tu donnes le cadre. Ensuite tu adaptes le scope, pas ton estime.
+      </div>
+    </section>
+
+    <!-- CH3 -->
+    <section class="chapter" id="ch3">
+      <div class="day-chip">Jours 6 à 10</div>
+      <p class="chapter-kicker">Chapitre 3</p>
+      <h2>Où trouver des clients (sans pub)</h2>
+      <p>Tu n’as pas besoin de 12 canaux. Tu as besoin de <strong>2 canaux bien exécutés</strong>.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>1. LinkedIn (canal #1)</h4>
+          <p>Optimise titre + bannière + “À propos”. Publie 3×/semaine. Envoie 10 DM/jour ciblés.</p>
+        </div>
+        <div class="card">
+          <h4>2. Réseau chaud</h4>
+          <p>Anciens collègues, amis d’amis, associations, alumni. Un message simple : “Je lance mon activité, tu connais quelqu’un qui… ?”</p>
+        </div>
+        <div class="card">
+          <h4>3. Communautés</h4>
+          <p>Groupes Facebook/Discord/Slack de ton niche. Aide d’abord, propose ensuite.</p>
+        </div>
+        <div class="card">
+          <h4>4. Plateformes (complément)</h4>
+          <p>Malt, ComeUp, Codeur : utile pour démarrer, mais ne construis pas 100 % dessus.</p>
+        </div>
+      </div>
+
+      <h3>Quota quotidien (non négociable)</h3>
+      <ul>
+        <li><strong>10</strong> prises de contact personnalisées</li>
+        <li><strong>1</strong> contenu publié (post, carrousel, short)</li>
+        <li><strong>5</strong> interactions utiles (commentaires réels, pas “super !”)</li>
+      </ul>
+    </section>
+
+    <!-- CH4 -->
+    <section class="chapter" id="ch4">
+      <div class="day-chip">Jours 11 à 15</div>
+      <p class="chapter-kicker">Chapitre 4</p>
+      <h2>Les messages qui ouvrent des conversations</h2>
+      <p>
+        Un bon message n’essaie pas de vendre tout de suite.
+        Il crée une <strong>conversation</strong>. La vente vient après.
+      </p>
+
+      <h3>Structure en 4 lignes</h3>
+      <ol>
+        <li><strong>Accroche personnalisée</strong> (fait précis sur eux)</li>
+        <li><strong>Observation / valeur</strong> (ce que tu as remarqué)</li>
+        <li><strong>Proposition légère</strong> (aide / idée / question)</li>
+        <li><strong>CTA soft</strong> (oui/non, 10 min, pas de pression)</li>
+      </ol>
+
+      <div class="callout warn">
+        <strong>Interdit</strong>
+        Copier-coller “Bonjour, je me permets de vous contacter car je suis freelance et…”. Ça sent le spam à 10 mètres.
+      </div>
+    </section>
+
+    <!-- TEMPLATES -->
+    <section class="chapter" id="templates">
+      <p class="chapter-kicker">Pack templates</p>
+      <h2>10 messages prêts à personnaliser</h2>
+      <p>Remplace les [crochets]. Envoie. Note le taux de réponse. Garde ce qui marche.</p>
+
+      <div class="template">
+        <div class="template-head">Template 1 — LinkedIn froid <span>Prospection</span></div>
+        <pre>Bonjour [Prénom],
+
+J’ai vu que [entreprise / poste] — notamment [détail précis : post, site, lancement].
+
+Je travaille avec [type de clients] sur [résultat concret].
+Si tu veux, je peux te partager 2 idées rapides pour [objectif], sans engagement.
+
+Ça te dit que je t’envoie ça en message ?</pre>
+        <div class="copy-hint">Taux de réponse attendu : 15–30 % si le détail est vraiment perso.</div>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 2 — Réseau chaud <span>Activation</span></div>
+        <pre>Salut [Prénom],
+
+Je me lance officiellement en freelance sur [offre claire en 1 phrase].
+
+Est-ce que tu aurais 1–2 personnes autour de toi qui cherchent justement ça en ce moment ?
+Même un contact lointain m’aide beaucoup.
+
+Merci 🙏</pre>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 3 — Après un post LinkedIn <span>Engagement</span></div>
+        <pre>Hey [Prénom],
+
+Ton post sur [sujet] m’a parlé — surtout le point sur [détail].
+
+De mon côté j’aide [qui] à [résultat].
+Si un jour tu (ou quelqu’un de ton réseau) a besoin de ça, je suis dispo pour un échange rapide.
+
+Bonne continuation !</pre>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 4 — Audit gratuit (lead magnet) <span>Valeur d’abord</span></div>
+        <pre>Bonjour [Prénom],
+
+J’ai passé 5 minutes sur [leur site / profil / compte].
+2 points me sautent aux yeux :
+1) [observation positive]
+2) [opportunité d’amélioration]
+
+Je peux te faire un mini-audit de 10 min (gratuit) avec 3 actions concrètes.
+Tu veux que je te l’envoie ici ?</pre>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 5 — Relance douce (J+4) <span>Follow-up</span></div>
+        <pre>Re-bonjour [Prénom],
+
+Je me permets un petit follow-up au cas où mon message soit passé à la trappe.
+
+Toujours partant(e) pour te partager les 2 idées sur [sujet] ?
+Sinon dis-moi juste “plus tard” et je ne te relancerai pas.</pre>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 6 — Relance valeur (J+9) <span>Follow-up #2</span></div>
+        <pre>Hello [Prénom],
+
+Dernière fois de ma part 🙂
+En préparant des idées pour des [métier cible], j’ai noté ça qui pourrait t’intéresser :
+
+→ [idée courte #1]
+→ [idée courte #2]
+
+Si tu veux le détail adapté à [leur contexte], je te l’envoie.</pre>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 7 — Email prospection <span>Email</span></div>
+        <pre>Objet : idée rapide pour [objectif de leur boîte]
+
+Bonjour [Prénom],
+
+Je vous contacte car [raison précise et non générique].
+
+En 2 semaines, j’aide généralement [type de client] à [résultat mesurable].
+Seriez-vous ouvert(e) à un échange de 12 minutes cette semaine ?
+
+Proposition de créneaux :
+- [jour] [heure]
+- [jour] [heure]
+
+Bien cordialement,
+[Ton prénom]
+[Lien portfolio / Calendly]</pre>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 8 — Groupe / communauté <span>Soft sell</span></div>
+        <pre>Salut tout le monde 👋
+
+Je vois souvent la question “comment [problème fréquent de la niche]”.
+
+J’ai documenté une méthode simple en 5 étapes (celle que j’utilise avec mes clients).
+Si ça intéresse, je la partage ici — dites juste “moi”.</pre>
+        <div class="copy-hint">Puis envoie la méthode en DM + propose un appel à ceux qui répondent “moi”.</div>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 9 — Après un premier échange <span>Qualification</span></div>
+        <pre>Merci [Prénom] pour ton retour.
+
+Pour te faire une proposition utile (pas un devis au hasard), j’ai 3 questions rapides :
+1) Quel est l’objectif principal d’ici 30–60 jours ?
+2) Qu’avez-vous déjà testé ?
+3) Quel budget approximatif avez-vous en tête pour ce projet ?
+
+Dès que j’ai ça, je te propose 2 options claires.</pre>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template 10 — Demande d’intro <span>Parrainage</span></div>
+        <pre>Salut [Prénom],
+
+Est-ce que tu connaîtrais quelqu’un qui :
+- [critère 1]
+- a besoin de [résultat]
+
+Si oui, un simple “je vous mets en relation” m’aide énormément.
+En échange, je t’offre [petit geste : audit, crédit, coup de main].</pre>
+      </div>
+    </section>
+
+    <!-- CH5 -->
+    <section class="chapter" id="ch5">
+      <div class="day-chip">Jours 16 à 22</div>
+      <p class="chapter-kicker">Chapitre 5</p>
+      <h2>Appel découverte + closing (script complet)</h2>
+      <p>Objectif de l’appel : comprendre le problème, qualifier, proposer. Pas monologuer sur ton parcours.</p>
+
+      <h3>Script 12–15 minutes</h3>
+      <div class="timeline">
+        <div class="step"><strong>0–1 min — Cadre</strong><br />« Merci pour ton temps. On a 15 min : je vais comprendre ton besoin, puis je te dirai si je peux aider et comment. »</div>
+        <div class="step"><strong>1–6 min — Diagnostic</strong><br />« Quel est le résultat que tu veux d’ici 30/60 jours ? Qu’est-ce qui bloque aujourd’hui ? Qu’avez-vous déjà tenté ? »</div>
+        <div class="step"><strong>6–9 min — Reformulation</strong><br />« Si je résume : tu veux [X], aujourd’hui [frein], et l’idéal serait [Y]. C’est bien ça ? »</div>
+        <div class="step"><strong>9–12 min — Offre</strong><br />« Voici 2 options. Option A (Standard) : … Option B (Premium) : … Laquelle colle le mieux ? »</div>
+        <div class="step"><strong>12–15 min — Next step</strong><br />« Je t’envoie le devis aujourd’hui. On vise un kickoff [date]. OK pour toi ? »</div>
+      </div>
+
+      <h3>Objections fréquentes</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>« C’est trop cher »</h4>
+          <p>« Par rapport à quel résultat ? On peut réduire le scope pour garder l’essentiel, ou étaler en 2 phases. »</p>
+        </div>
+        <div class="card">
+          <h4>« Je réfléchis »</h4>
+          <p>« OK. Qu’est-ce qui te ferait dire oui clairement ? Budget, timing, ou confiance sur la méthode ? »</p>
+        </div>
+        <div class="card">
+          <h4>« On a déjà quelqu’un »</h4>
+          <p>« Parfait. Si un jour vous avez un pic / un besoin ponctuel, je peux servir de renfort. Je te laisse mon offre one-shot. »</p>
+        </div>
+        <div class="card">
+          <h4>« Envoie ton portfolio »</h4>
+          <p>« Avec plaisir — et pour que ce soit pertinent : tu préfères voir des exemples [A] ou [B] ? »</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH6 -->
+    <section class="chapter" id="ch6">
+      <div class="day-chip">Jours 23 à 30</div>
+      <p class="chapter-kicker">Chapitre 6</p>
+      <h2>Livrer, facturer, transformer 1 client en 3</h2>
+
+      <h3>Modèle de devis (structure)</h3>
+      <div class="card">
+        <ol>
+          <li><strong>Contexte</strong> : le problème reformulé en 3 lignes</li>
+          <li><strong>Objectif</strong> : résultat mesurable</li>
+          <li><strong>Périmètre</strong> : inclus / non inclus</li>
+          <li><strong>Livrables + délais</strong></li>
+          <li><strong>Investissement</strong> : 2 options</li>
+          <li><strong>Modalités</strong> : 40 % à la commande, 60 % à la livraison (adaptable)</li>
+          <li><strong>Prochaine étape</strong> : signature + kickoff</li>
+        </ol>
+      </div>
+
+      <div class="template">
+        <div class="template-head">Template devis — message d’envoi <span>Closing</span></div>
+        <pre>Bonjour [Prénom],
+
+Comme convenu, voici la proposition pour [objectif].
+
+Option Standard — [prix] €
+→ [3 livrables clés]
+→ Délai : [X] jours
+
+Option Premium — [prix] €
+→ tout le Standard
+→ + [suivi / extra / revisions]
+
+Inclus clairement / hors scope : voir le PDF joint.
+Acompte : 40 % pour réserver le créneau kickoff du [date].
+
+Dis-moi quelle option tu préfères, je t’envoie le lien de paiement / le bon de commande.</pre>
+      </div>
+
+      <h3>Après la livraison</h3>
+      <ul>
+        <li>Demande un avis Google / LinkedIn (template ci-dessous)</li>
+        <li>Demande 1 intro (“qui dans ton réseau…”) </li>
+        <li>Propose une offre récurrente (maintenance, rétainer mensuel)</li>
+      </ul>
+
+      <div class="template">
+        <div class="template-head">Template demande d’avis <span>Preuve sociale</span></div>
+        <pre>Salut [Prénom],
+
+Content que [résultat obtenu] te plaise 🙌
+Si tu as 2 minutes, un court avis LinkedIn m’aiderait beaucoup pour rassurer mes prochains clients.
+
+Tu peux parler de : le problème de départ → ce qu’on a fait → le résultat.
+Merci infiniment !</pre>
+      </div>
+    </section>
+
+    <!-- PLAN 30 -->
+    <section class="chapter" id="plan30">
+      <p class="chapter-kicker">Système</p>
+      <h2>Plan d’action 30 jours</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Période</th>
+            <th>Focus</th>
+            <th>KPI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>J1–3</td>
+            <td>Offre + bio LinkedIn + portfolio minimal</td>
+            <td>1 phrase d’offre finalisée</td>
+          </tr>
+          <tr>
+            <td>J4–5</td>
+            <td>Grille de prix 3 niveaux</td>
+            <td>3 offres chiffrées</td>
+          </tr>
+          <tr>
+            <td>J6–10</td>
+            <td>Liste de 100 prospects + début prospection</td>
+            <td>50 messages envoyés</td>
+          </tr>
+          <tr>
+            <td>J11–15</td>
+            <td>Prospection + relances + 1 post/jour ouvré</td>
+            <td>10 conversations ouvertes</td>
+          </tr>
+          <tr>
+            <td>J16–22</td>
+            <td>Appels découverte + devis</td>
+            <td>5 appels / 3 devis</td>
+          </tr>
+          <tr>
+            <td>J23–30</td>
+            <td>Closing + livraison + demandes d’avis/intro</td>
+            <td>1 à 3 clients signés</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout tip">
+        <strong>Si tu n’as aucun client à J30</strong>
+        Ce n’est presque jamais “le marché”. C’est le volume ou la clarté de l’offre. Double les messages 14 jours, resserre la niche, améliore le 1er message avec un détail ultra-perso.
+      </div>
+    </section>
+
+    <!-- BONUS -->
+    <section class="chapter" id="bonus">
+      <p class="chapter-kicker">Bonus</p>
+      <h2>Checklists & assets</h2>
+
+      <h3>Checklist profil LinkedIn (avant prospection)</h3>
+      <div class="checklist">
+        <label><input type="checkbox" /> Photo pro + bannière avec promesse claire</label>
+        <label><input type="checkbox" /> Titre = résultat + pour qui (pas juste “Freelance”)</label>
+        <label><input type="checkbox" /> Section À propos : offre + preuve + CTA</label>
+        <label><input type="checkbox" /> 3 médias (études de cas, captures, avant/après)</label>
+        <label><input type="checkbox" /> Lien Calendly / portfolio dans le bandeau</label>
+      </div>
+
+      <h3>Checklist avant d’envoyer un devis</h3>
+      <div class="checklist">
+        <label><input type="checkbox" /> Problème reformulé avec leurs mots</label>
+        <label><input type="checkbox" /> 2 options de prix minimum</label>
+        <label><input type="checkbox" /> Inclus / hors scope écrit</label>
+        <label><input type="checkbox" /> Délai + date de kickoff proposée</label>
+        <label><input type="checkbox" /> Modalités de paiement claires</label>
+      </div>
+
+      <h3>Tracker simple (à recopier dans Notion / Sheets)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Prospect</th>
+            <th>Canal</th>
+            <th>Date message</th>
+            <th>Relance</th>
+            <th>Statut</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ex. Camille Dupont</td>
+            <td>LinkedIn</td>
+            <td>12/08</td>
+            <td>16/08</td>
+            <td>Appel booké</td>
+            <td>Veut landing page</td>
+          </tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout action">
+        <strong>Personnalisation</strong>
+        Remplace partout [Ton prénom], ajoute ton offre exacte, et exporte ce fichier en PDF via le bouton en haut.
+        Templates séparés aussi disponibles dans le dossier <em>templates/</em>.
+      </div>
+    </section>
+  </main>
+
+  <footer class="book-end wrap">
+    <h2>Tu as le système. Il ne reste que l’exécution.</h2>
+    <p>10 messages/jour. 1 offre claire. 30 jours. C’est comme ça que les premiers clients arrivent.</p>
+  </footer>
+</body>
+</html>

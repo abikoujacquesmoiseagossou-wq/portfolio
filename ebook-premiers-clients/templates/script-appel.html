@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Script appel découverte — 15 min</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background: #0f1717;
+      color: #e8f3f2;
+      padding: 2rem 1rem 3rem;
+    }
+    .wrap { width: min(760px, 100%); margin: 0 auto; }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin: 0 0 .4rem;
+    }
+    .sub { color: #9bb8b5; margin-bottom: 1.5rem; }
+    .block {
+      background: #163030;
+      border: 1px solid #234343;
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      margin: 0 0 .85rem;
+    }
+    .block .t {
+      color: #8fd4cf;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+    .q {
+      margin: .45rem 0 0;
+      padding: .55rem .7rem;
+      border-left: 3px solid #0b6b6b;
+      background: rgba(11,107,107,.18);
+      border-radius: 0 10px 10px 0;
+      font-size: .95rem;
+    }
+    button {
+      margin-top: 1rem;
+      border: 0;
+      background: #0b6b6b;
+      color: #fff;
+      font-weight: 700;
+      padding: .75rem 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      .block { background: #f6f7f9; border-color: #ddd; color: #111; }
+      .block .t { color: #0b6b6b; }
+      button { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Script appel découverte</h1>
+    <p class="sub">15 minutes · à garder sous les yeux pendant l’appel</p>
+
+    <div class="block">
+      <div class="t">0–1 min · Cadre</div>
+      « Merci [Prénom]. On a 15 minutes : je vais comprendre ton besoin, puis je te dirai clairement si je peux aider — et comment. »
+    </div>
+
+    <div class="block">
+      <div class="t">1–6 min · Diagnostic</div>
+      <div class="q">Quel résultat tu veux d’ici 30 à 60 jours ?</div>
+      <div class="q">Qu’est-ce qui bloque aujourd’hui concrètement ?</div>
+      <div class="q">Qu’avez-vous déjà testé ? Qu’est-ce qui n’a pas marché ?</div>
+      <div class="q">Qui décide du budget / de la signature ?</div>
+    </div>
+
+    <div class="block">
+      <div class="t">6–9 min · Reformulation</div>
+      « Si je résume : tu veux [X], aujourd’hui le frein c’est [Y], et l’idéal serait [Z]. C’est bien ça ? »
+    </div>
+
+    <div class="block">
+      <div class="t">9–12 min · Offre (2 options)</div>
+      « Voici 2 façons de le faire.<br />
+      Option Standard : [scope] — [prix].<br />
+      Option Premium : [scope + extra] — [prix].<br />
+      Laquelle colle le mieux à ton objectif ? »
+    </div>
+
+    <div class="block">
+      <div class="t">12–15 min · Next step</div>
+      « Je t’envoie le devis aujourd’hui avec les 2 options. On peut viser un kickoff le [date]. OK pour toi ? »
+    </div>
+
+    <div class="block">
+      <div class="t">Objections express</div>
+      <div class="q">Trop cher → « On réduit le scope ou on découpe en 2 phases. »</div>
+      <div class="q">Je réfléchis → « Qu’est-ce qui te ferait dire oui clairement ? »</div>
+      <div class="q">Pas le bon timing → « Je te recontacte le [date]. D’accord ? »</div>
+    </div>
+
+    <button onclick="window.print()">Exporter PDF</button>
+  </div>
+</body>
+</html>

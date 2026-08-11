@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist 30 jours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --teal:#0b6b6b; --ink:#14181f; --line:#e3e7ee; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(700px 400px at 0% 0%, #d8f3f0, transparent 60%),
+        #f6f7f9;
+      color: var(--ink);
+      padding: 2rem 1rem 3rem;
+    }
+    .wrap { width: min(820px, 100%); margin: 0 auto; }
+    h1 { font-family: Fraunces, Georgia, serif; margin: 0 0 .3rem; }
+    .sub { color: #5a6372; margin-bottom: 1.4rem; }
+    .week {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      margin: 0 0 1rem;
+      box-shadow: 0 10px 30px rgba(20,24,31,.06);
+    }
+    .week h2 {
+      margin: 0 0 .7rem;
+      font-size: 1rem;
+      color: var(--teal);
+    }
+    label {
+      display: flex;
+      gap: .65rem;
+      align-items: flex-start;
+      padding: .45rem 0;
+      border-bottom: 1px dashed #edf0f5;
+      font-size: .95rem;
+    }
+    label:last-child { border-bottom: 0; }
+    input { margin-top: .2rem; accent-color: var(--teal); }
+    button {
+      border: 0;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      padding: .75rem 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    @media print {
+      button { display: none; }
+      body { background: #fff; }
+      .week { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Checklist 30 jours</h1>
+    <p class="sub">Coche au fur et à mesure. Objectif : 3 clients payants.</p>
+
+    <div class="week">
+      <h2>Semaine 1 — Fondations (J1–7)</h2>
+      <label><input type="checkbox" /> Offre écrite en 1 phrase (formule “j’aide… à…”)</label>
+      <label><input type="checkbox" /> Bio LinkedIn + titre + bannière mis à jour</label>
+      <label><input type="checkbox" /> Grille de prix 3 niveaux définie</label>
+      <label><input type="checkbox" /> Portfolio minimal (3 preuves / exemples)</label>
+      <label><input type="checkbox" /> Liste de 100 prospects démarrée</label>
+      <label><input type="checkbox" /> 30 premiers messages envoyés</label>
+    </div>
+
+    <div class="week">
+      <h2>Semaine 2 — Volume (J8–14)</h2>
+      <label><input type="checkbox" /> 10 messages / jour ouvré</label>
+      <label><input type="checkbox" /> 1 post LinkedIn / jour ouvré</label>
+      <label><input type="checkbox" /> Relances J+4 envoyées</label>
+      <label><input type="checkbox" /> 10 conversations ouvertes minimum</label>
+      <label><input type="checkbox" /> Tracker prospects à jour</label>
+    </div>
+
+    <div class="week">
+      <h2>Semaine 3 — Closing (J15–22)</h2>
+      <label><input type="checkbox" /> 5 appels découverte bookés</label>
+      <label><input type="checkbox" /> Script d’appel maîtrisé</label>
+      <label><input type="checkbox" /> 3 devis envoyés (2 options chacun)</label>
+      <label><input type="checkbox" /> Relances devis effectuées</label>
+    </div>
+
+    <div class="week">
+      <h2>Semaine 4 — Preuve & levier (J23–30)</h2>
+      <label><input type="checkbox" /> 1er client signé (acompte reçu)</label>
+      <label><input type="checkbox" /> Livraison cadrée (brief + délais)</label>
+      <label><input type="checkbox" /> Demande d’avis envoyée</label>
+      <label><input type="checkbox" /> Demande d’intro / parrainage envoyée</label>
+      <label><input type="checkbox" /> Offre récurrente proposée (si pertinent)</label>
+      <label><input type="checkbox" /> Bilan 30 jours : ce qui a marché / à corriger</label>
+    </div>
+
+    <button onclick="window.print()">Exporter PDF</button>
+  </div>
+</body>
+</html>
